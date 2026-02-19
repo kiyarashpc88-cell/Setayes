@@ -8,6 +8,24 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;600;800&display=swap');
 
+html, body{
+  margin:0;
+  padding:0;
+  width:100%;
+  overflow-x:hidden;
+}
+
+  .panel{
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: clamp(16px, 4vw, 30px);
+  background: rgba(255,255,255,.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,255,213,.25);
+}
+
+  
 *{box-sizing:border-box;}
 body{
 margin:0;
@@ -32,103 +50,6 @@ padding:30px;
 box-shadow:0 0 30px rgba(0,255,213,.25);
 }
 
-/* ===================== */
-/* ✅ MOBILE FIX FINAL */
-/* ===================== */
-@media (max-width: 768px) {
-
-  body {
-    overflow-x: hidden;
-  }
-
-  /* پنل‌ها */
-  .panel {
-    margin: 20px 10px;
-    padding: 18px;
-  }
-
-  /* محور عددی */
-  #numberAxis {
-    width: 100% !important;
-    height: 120px;
-  }
-
-  canvas {
-    max-width: 100%;
-    height: auto;
-  }
-
-  /* بازی اعداد زنده */
-  #lifeGame {
-    width: 100% !important;
-    height: 300px !important;
-  }
-
-  /* تبدیل عدد به قدر مطلق */
-  .abs-stage {
-    flex-direction: column;
-    gap: 20px;
-    height: auto;
-  }
-
-  .abs-number {
-    font-size: 64px;
-  }
-
-  .abs-bars {
-    font-size: 90px;
-  }
-
-  #absBtn {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  /* شکار قدر مطلق */
-  #abs-game {
-    width: 95%;
-    padding: 20px;
-  }
-
-  #grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .grid-item {
-    padding: 14px;
-    font-size: 18px;
-  }
-
-  /* بازی پرش */
-  #abs-jump-game {
-    width: 100%;
-  }
-
-  #game {
-    height: 180px;
-  }
-
-  #player {
-    font-size: 48px;
-    left: 20px;
-  }
-
-  .obstacle {
-    font-size: 40px;
-  }
-
-  #score {
-    font-size: 15px;
-    right: 10px;
-  }
-
-  /* جلوگیری از بیرون‌زدگی */
-  * {
-    max-width: 100vw;
-  }
-}
-
-
 /* FALLING MATH */
 .math-rain{
 position:fixed;
@@ -144,15 +65,30 @@ z-index:0;
 to{transform:translateY(110vh) rotate(360deg);opacity:0}
 }
 
-/* NUMBER AXIS */
 #numberAxis{
-display:block;
-margin:30px auto;
-background:rgba(255,255,255,.06);
-border-radius:16px;
-box-shadow:0 0 25px rgba(0,255,213,.25);
-touch-action:none;
+  width:100%;
+  max-width:900px;
+  aspect-ratio: 9 / 1.2;
+  height:auto;
+  display:block;
+  margin:20px auto;
+  background:rgba(255,255,255,.06);
+  border-radius:16px;
+  box-shadow:0 0 25px rgba(0,255,213,.25);
 }
+
+#grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap:10px;
+}
+
+#game{
+  width:100%;
+  max-width:800px;
+  height: min(250px, 50vw);
+}
+  
 
 /* VIDEO */
 .video-box{
@@ -246,6 +182,16 @@ box-shadow:0 0 30px rgba(0,255,213,.35);
   font-size: 20px;
   margin-bottom: 10px;
 }
+
+  #lifeGame{
+  width:100%;
+  max-width:720px;
+  aspect-ratio: 12 / 7;
+  height:auto;
+  display:block;
+  margin:20px auto;
+}
+
 
 #grid {
   display: grid;
@@ -395,7 +341,7 @@ footer{text-align:center;opacity:.6;padding:20px}
 <!-- NUMBER AXIS -->
 <div class="panel">
 <h2>محور عددی تعاملی</h2>
-<canvas id="numberAxis" width="900" height="120"></canvas>
+<canvas id="numberAxis"></canvas>
 <div class="game-info" id="axisInfo">|0| = 0</div>
 </div>
 
@@ -410,7 +356,7 @@ footer{text-align:center;opacity:.6;padding:20px}
 <!-- GAME -->
 <div class="panel">
 <h2>🎮 بازی شهر اعداد مثبت و منفی</h2>
-<canvas id="lifeGame" width="720" height="420"></canvas>
+<canvas id="lifeGame"></canvas>
 <div class="game-info" id="lifeInfo">دو عدد را به هم بچسبان</div>
 </div>
 
@@ -760,6 +706,34 @@ startGame();
   setInterval(scoreUpdate, 500);
 
 })();
+
+
+function resizeLifeGame(){
+  const r = game.getBoundingClientRect();
+  game.width = r.width;
+  game.height = r.height;
+}
+window.addEventListener("resize", resizeLifeGame);
+window.addEventListener("orientationchange", resizeLifeGame);
+resizeLifeGame();
+  
+
+
+const axis = document.getElementById("numberAxis");
+const actx = axis.getContext("2d");
+
+function resizeAxis(){
+  const rect = axis.getBoundingClientRect();
+  axis.width = rect.width;
+  axis.height = rect.height;
+  drawAxis();
+}
+
+window.addEventListener("resize", resizeAxis);
+window.addEventListener("orientationchange", resizeAxis);
+resizeAxis();
+
+  
 
 spawnNegative();
 
