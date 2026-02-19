@@ -357,6 +357,53 @@ box-shadow:0 0 30px rgba(0,255,213,.35);
   padding-top:80px;
 }
 
+.abs-text{
+  line-height:2;
+  font-size:1.05rem;
+}
+
+.abs-text p{
+  margin:14px 0;
+  color:#e5e7eb;
+}
+
+.abs-text h2{
+  margin-bottom:20px;
+}
+
+.math{
+  font-weight:700;
+  color:#00ffd5;
+}
+
+.example{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin:20px 0;
+  font-size:1.2rem;
+  color:#22d3ee;
+  font-weight:700;
+}
+
+.rule{
+  background:rgba(0,255,213,.08);
+  border-right:4px solid #00ffd5;
+  padding:15px 20px;
+  border-radius:12px;
+  margin:20px 0;
+}
+
+.rule p{
+  margin:6px 0;
+}
+
+.result{
+  font-weight:600;
+  color:#a7f3d0;
+}
+
+
 #gameover button {
   margin-top:15px;
   padding:12px 25px;
@@ -391,6 +438,54 @@ footer{text-align:center;opacity:.6;padding:20px}
 <h1>آزمایشگاه تعاملی قدر مطلق</h1>
 <p>اعداد زنده‌اند؛ فاصله‌شان از صفر را لمس کن</p>
 </header>
+
+<div class="panel abs-text">
+  <h2>📘 معرفی مفهوم قدر مطلق</h2>
+
+  <p>
+    قدر مطلق یکی از مفاهیم بنیادی در ریاضی پایه نهم است که برای بیان فاصله به کار می‌رود.
+    در محور اعداد، هر عدد در فاصله‌ای مشخص از صفر قرار دارد و این فاصله همیشه مقداری غیرمنفی است.
+    قدر مطلق دقیقاً همین فاصله را نشان می‌دهد؛ بدون توجه به جهت قرارگیری عدد.
+  </p>
+
+  <p>
+    قدر مطلق با دو خط عمودی مانند <span class="math">|a|</span> نمایش داده می‌شود.
+    اگر عدد داخل قدر مطلق مثبت یا صفر باشد، مقدار آن تغییری نمی‌کند؛
+    اما اگر عدد منفی باشد، علامت آن حذف می‌شود و به صورت مثبت نوشته می‌شود.
+  </p>
+
+  <div class="example">
+    <span>|7| = 7</span>
+    <span>|-7| = 7</span>
+  </div>
+
+  <p>
+    زیرا هر دو عدد ۷ واحد از صفر فاصله دارند.
+  </p>
+
+  <div class="rule">
+    <p>اگر <span class="math">a ≥ 0</span> باشد، آنگاه <span class="math">|a| = a</span></p>
+    <p>و اگر <span class="math">a &lt; 0</span> باشد، آنگاه <span class="math">|a| = -a</span></p>
+  </div>
+
+  <p>
+    این تعریف نشان می‌دهد که قدر مطلق، جهت را حذف کرده و تنها اندازه عدد را در نظر می‌گیرد.
+  </p>
+
+  <p>
+    قدر مطلق در حل معادلات و محاسبه فاصله بین دو عدد نیز کاربرد فراوان دارد.
+    برای مثال، اگر <span class="math">|x| = 4</span> باشد،
+    دو جواب به دست می‌آید:
+    <span class="math">x = 4</span> و <span class="math">x = -4</span>،
+    زیرا هر دو عدد چهار واحد از صفر فاصله دارند.
+  </p>
+
+  <p class="result">
+    در نتیجه، قدر مطلق ابزاری ریاضی برای اندازه‌گیری فاصله است؛
+    مفهومی که در بسیاری از مسائل عددی، معادلات و حتی کاربردهای علمی نقش مهمی ایفا می‌کند.
+  </p>
+</div>
+
 
 <!-- NUMBER AXIS -->
 <div class="panel">
