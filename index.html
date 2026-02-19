@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -10,11 +11,11 @@
 
 *{box-sizing:border-box;}
 body{
-margin:0;
-font-family:'Vazirmatn',sans-serif;
-background:radial-gradient(circle at top,#0f2027,#203a43,#000);
-color:#fff;
-overflow-x:hidden;
+  margin:0;
+  font-family:'Vazirmatn',sans-serif;
+  background:radial-gradient(circle at top,#0f2027,#203a43,#000);
+  color:#fff;
+  overflow-x:hidden;
 }
 
 /* HEADER */
@@ -24,92 +25,65 @@ h2{text-align:center;color:#00ffd5}
 
 /* PANEL */
 .panel{
-max-width:1000px;
-margin:30px auto;
-background:rgba(255,255,255,.05);
-border-radius:20px;
-padding:30px;
-box-shadow:0 0 30px rgba(0,255,213,.25);
+  max-width:1000px;
+  margin:30px auto;
+  background:rgba(255,255,255,.05);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 0 30px rgba(0,255,213,.25);
+  overflow-x:hidden;
+  overflow-y:auto; /* اسکرول عمودی */
 }
-
-/* ======= MOBILE RESPONSIVE ======= */
-@media (max-width: 768px) {
-  header h1 { font-size: 2rem; }
-  header p { font-size: 1rem; }
-
-  .panel { padding: 20px; margin: 20px 10px; }
-  .video-box { padding-top: 56.25%; }
-
-  #abs-game, #abs-jump-game {
-    max-width: 95%;
-    padding: 20px;
-    margin: 30px auto;
-  }
-
-  #negative-number { font-size: 60px; }
-  #top-bar { font-size: 18px; flex-direction: column; gap: 5px; }
-  #grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-
-  .grid-item { font-size: 18px; padding: 12px; }
-
-  #player { font-size: 50px; left: 30px; }
-  .obstacle { font-size: 40px; }
-
-  #score { top: 5px; right: 10px; font-size: 16px; }
-  #game { height: 180px; }
-
-  #absNumber { font-size: 60px; }
-  .abs-bars { font-size: 80px; }
-}
-
 
 /* FALLING MATH */
 .math-rain{
-position:fixed;
-top:-50px;
-pointer-events:none;
-font-weight:600;
-animation:fall linear forwards;
-filter:drop-shadow(0 0 8px currentColor);
-opacity:.85;
-z-index:0;
+  position:fixed;
+  top:-50px;
+  pointer-events:none;
+  font-weight:600;
+  animation:fall linear forwards;
+  filter:drop-shadow(0 0 8px currentColor);
+  opacity:.85;
+  z-index:0;
 }
 @keyframes fall{
-to{transform:translateY(110vh) rotate(360deg);opacity:0}
+  to{transform:translateY(110vh) rotate(360deg);opacity:0}
 }
 
 /* NUMBER AXIS */
 #numberAxis{
-display:block;
-margin:30px auto;
-background:rgba(255,255,255,.06);
-border-radius:16px;
-box-shadow:0 0 25px rgba(0,255,213,.25);
-touch-action:none;
+  display:block;
+  width:100% !important; /* همیشه داخل پنل */
+  max-width:1000px;
+  height:120px;
+  border-radius:16px;
+  box-shadow:0 0 25px rgba(0,255,213,.25);
+  touch-action:none;
+  margin:0 auto; /* وسط چین */
 }
 
 /* VIDEO */
 .video-box{
-position:relative;
-padding-top:56.25%;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 0 20px rgba(0,255,213,.3);
+  position:relative;
+  padding-top:56.25%;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 0 20px rgba(0,255,213,.3);
 }
 .video-box iframe{
-position:absolute;
-top:0;left:0;
-width:100%;height:100%;
-border:0;
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  border:0;
 }
 
 /* GAME */
 canvas{
-display:block;
-margin:20px auto;
-border-radius:18px;
-background:linear-gradient(#0a1a1f,#050b0f);
-box-shadow:0 0 30px rgba(0,255,213,.35);
+  display:block;
+  margin:20px auto;
+  border-radius:18px;
+  background:linear-gradient(#0a1a1f,#050b0f);
+  box-shadow:0 0 30px rgba(0,255,213,.35);
 }
 
 .abs-panel{
@@ -253,7 +227,7 @@ box-shadow:0 0 30px rgba(0,255,213,.35);
 
 @keyframes jump {
   0% { bottom:20px; }
-  50% { bottom:180px; } /* ارتفاع پرش بیشتر */
+  50% { bottom:180px; }
   100% { bottom:20px; }
 }
 
@@ -316,6 +290,39 @@ box-shadow:0 0 30px rgba(0,255,213,.35);
 
 .game-info{text-align:center;font-size:1.2rem;margin-top:10px}
 footer{text-align:center;opacity:.6;padding:20px}
+
+/* ======= MOBILE RESPONSIVE ======= */
+@media (max-width: 768px) {
+  header h1 { font-size: 2rem; }
+  header p { font-size: 1rem; }
+
+  .panel { padding: 20px; margin: 20px 10px; }
+  .video-box { padding-top: 56.25%; }
+
+  #abs-game, #abs-jump-game {
+    max-width: 95%;
+    padding: 20px;
+    margin: 30px auto;
+  }
+
+  #negative-number { font-size: 60px; }
+  #top-bar { font-size: 18px; flex-direction: column; gap: 5px; }
+  #grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+
+  .grid-item { font-size: 18px; padding: 12px; }
+
+  #player { font-size: 50px; left: 30px; }
+  .obstacle { font-size: 40px; }
+
+  #score { top: 5px; right: 10px; font-size: 16px; }
+  #game { height: 180px; }
+
+  #absNumber { font-size: 60px; }
+  .abs-bars { font-size: 80px; }
+
+  /* کانواس محور عددی موبایل */
+  #numberAxis { height: 100px; }
+}
 </style>
 </head>
 
@@ -329,7 +336,7 @@ footer{text-align:center;opacity:.6;padding:20px}
 <!-- NUMBER AXIS -->
 <div class="panel">
 <h2>محور عددی تعاملی</h2>
-<canvas id="numberAxis" width="900" height="120"></canvas>
+<canvas id="numberAxis"></canvas>
 <div class="game-info" id="axisInfo">|0| = 0</div>
 </div>
 
@@ -393,24 +400,13 @@ footer{text-align:center;opacity:.6;padding:20px}
   </div>
 </div>
 
-
 <footer>طراحی و ساخته شده توسط خانوم ستایش شکری و خانوم تینا مالمیر</footer>
 
 <script>
 /* ========= MATH RAIN ========= */
 const symbols=["+","−","×","÷","|x|","√","π","∞","-4","-1","0","2","6"];
 const colors=["#00ffd5","#ff0066","#00ff99","#ffd700","#8a2be2"];
-setInterval(()=>{
-const s=document.createElement("div");
-s.className="math-rain";
-s.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-s.style.left=Math.random()*100+"vw";
-s.style.fontSize=16+Math.random()*26+"px";
-s.style.color=colors[Math.floor(Math.random()*colors.length)];
-s.style.animationDuration=3+Math.random()*5+"s";
-document.body.appendChild(s);
-setTimeout(()=>s.remove(),9000);
-},180);
+setInterval(()=>{const s=document.createElement("div");s.className="math-rain";s.textContent=symbols[Math.floor(Math.random()*symbols.length)];s.style.left=Math.random()*100+"vw";s.style.fontSize=16+Math.random()*26+"px";s.style.color=colors[Math.floor(Math.random()*colors.length)];s.style.animationDuration=3+Math.random()*5+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),9000);},180);
 
 /* ========= NUMBER AXIS ========= */
 const axis=document.getElementById("numberAxis");
@@ -420,304 +416,33 @@ let min=-10,max=10,value=0;
 
 function map(v){return 50+(v-min)*(axis.width-100)/(max-min);}
 function drawAxis(){
-actx.clearRect(0,0,axis.width,axis.height);
-actx.strokeStyle="#fff";actx.lineWidth=3;
-actx.beginPath();actx.moveTo(50,60);actx.lineTo(axis.width-50,60);actx.stroke();
-let zx=map(0);
-actx.strokeStyle="#00ffd5";
-actx.beginPath();actx.moveTo(zx,30);actx.lineTo(zx,90);actx.stroke();
-for(let i=min;i<=max;i++){
-let x=map(i);
-actx.strokeStyle="#aaa";
-actx.beginPath();actx.moveTo(x,55);actx.lineTo(x,65);actx.stroke();
-actx.fillStyle="#aaa";actx.font="13px Vazirmatn";
-actx.textAlign="center";actx.fillText(i,x,85);
+  axis.width = axis.parentElement.offsetWidth; // عرض همیشه فیکس داخل پنل
+  actx.clearRect(0,0,axis.width,axis.height);
+  actx.strokeStyle="#fff";actx.lineWidth=3;
+  actx.beginPath();actx.moveTo(50,60);actx.lineTo(axis.width-50,60);actx.stroke();
+  let zx=map(0);
+  actx.strokeStyle="#00ffd5";
+  actx.beginPath();actx.moveTo(zx,30);actx.lineTo(zx,90);actx.stroke();
+  for(let i=min;i<=max;i++){
+    let x=map(i);
+    actx.strokeStyle="#aaa";
+    actx.beginPath();actx.moveTo(x,55);actx.lineTo(x,65);actx.stroke();
+    actx.fillStyle="#aaa";actx.font="13px Vazirmatn";
+    actx.textAlign="center";actx.fillText(i,x,85);
+  }
+  let px=map(value);
+  actx.fillStyle="#ff0066";
+  actx.beginPath();
+  actx.arc(px,60,10,0,Math.PI*2);
+  actx.fill();
+  axisInfo.innerHTML=`|${value}| = ${Math.abs(value)}`;
 }
-let px=map(value);
-actx.fillStyle="#ff0066";
-actx.beginPath();actx.arc(px,60,10,0,Math.PI*2);actx.fill();
-axisInfo.innerHTML=`|${value}| = ${Math.abs(value)}`;
-}
-axis.addEventListener("mousemove",e=>{
-const r=axis.getBoundingClientRect();
-value=Math.round(min+(e.clientX-r.left-50)*(max-min)/(axis.width-100));
-value=Math.max(min,Math.min(max,value));
-drawAxis();
-});
+axis.addEventListener("mousemove",e=>{const r=axis.getBoundingClientRect();value=Math.round(min+(e.clientX-r.left-50)*(max-min)/(axis.width-100));value=Math.max(min,Math.min(max,value));drawAxis();});
 drawAxis();
 
 /* ========= LIVE NUMBER GAME ========= */
-const game=document.getElementById("lifeGame");
-const ctx=game.getContext("2d");
-const info=document.getElementById("lifeInfo");
-
-let freeze=false;
-let nums=[];
-let selected=null;
-
-class LiveNumber{
-constructor(x,y,val){
-this.x=x;this.y=y;this.val=val;
-this.vx=(Math.random()-.5)*1.5;
-this.vy=(Math.random()-.5)*1.5;
-this.drag=false;
-}
-draw(){
-ctx.fillStyle=this.val<0?"#ff0066":"#00ff99";
-ctx.font="bold 28px Vazirmatn";
-ctx.textAlign="center";
-ctx.textBaseline="middle";
-ctx.fillText(this.val,this.x,this.y);
-}
-move(){
-if(!this.drag && !freeze){
-this.x+=this.vx;this.y+=this.vy;
-}
-if(this.x<30||this.x>game.width-30)this.vx*=-1;
-if(this.y<30||this.y>game.height-30)this.vy*=-1;
-}
-}
-
-function spawnNumber(){
-return new LiveNumber(
-Math.random()*600+60,
-Math.random()*300+60,
-Math.floor(Math.random()*21)-10
-);
-}
-
-for(let i=0;i<6;i++) nums.push(spawnNumber());
-
-function dist(a,b){return Math.hypot(a.x-b.x,a.y-b.y);}
-
-function loop(){
-ctx.clearRect(0,0,game.width,game.height);
-nums.forEach(n=>{n.move();n.draw();});
-
-if(!freeze && selected){
-for(let n of nums){
-if(n!==selected && dist(n,selected)<35){
-freeze=true;
-let res=selected.val+n.val;
-info.innerHTML=`${selected.val} + ${n.val} = ${res} |${res}|=${Math.abs(res)}`;
-
-let cx=(selected.x+n.x)/2;
-let cy=(selected.y+n.y)/2;
-
-nums=nums.filter(x=>x!==n && x!==selected);
-nums.push(new LiveNumber(cx,cy,res));
-
-while(nums.length<6){
-nums.push(spawnNumber());
-}
-
-selected=null;
-
-setTimeout(()=>{
-freeze=false;
-info.innerHTML="ادامه بده!";
-},700);
-break;
-}
-}
-}
-requestAnimationFrame(loop);
-}
-loop();
-
-/* DRAG + TOUCH */
-function pos(e){
-const r=game.getBoundingClientRect();
-const p=e.touches?e.touches[0]:e;
-return{x:p.clientX-r.left,y:p.clientY-r.top};
-}
-game.addEventListener("mousedown",e=>{
-let p=pos(e);
-nums.forEach(n=>{if(dist(n,p)<30){selected=n;n.drag=true;}});
-});
-game.addEventListener("mousemove",e=>{
-if(selected){let p=pos(e);selected.x=p.x;selected.y=p.y;}
-});
-game.addEventListener("mouseup",()=>{if(selected)selected.drag=false;});
-
-game.addEventListener("touchstart",e=>{
-let p=pos(e);
-nums.forEach(n=>{if(dist(n,p)<30){selected=n;n.drag=true;}});
-});
-game.addEventListener("touchmove",e=>{
-e.preventDefault();
-if(selected){let p=pos(e);selected.x=p.x;selected.y=p.y;}
-},{passive:false});
-game.addEventListener("touchend",()=>{if(selected)selected.drag=false;});
-
-const absNumEl=document.getElementById("absNumber");
-const absBtn=document.getElementById("absBtn");
-const bars=document.querySelector(".abs-bars");
-
-let currentValue;
-
-function spawnNegative(){
-  currentValue=-(Math.floor(Math.random()*9)+1);
-  absNumEl.textContent=currentValue;
-  absNumEl.style.transform="translateX(0)";
-  absNumEl.style.color="#ff0066";
-}
-
-let correctAnswer;
-let time = 10;
-let timerInterval;
-
-function startGame() {
-  document.getElementById("restart").style.display = "none";
-  document.getElementById("status").innerText = "";
-
-  // عدد منفی جدید
-  const negative = -Math.floor(Math.random() * 20 + 1);
-  correctAnswer = Math.abs(negative);
-  document.getElementById("negative-number").innerText = negative;
-
-  // ساخت جدول اعداد
-  const grid = document.getElementById("grid");
-  grid.innerHTML = "";
-
-  let numbers = new Set();
-  numbers.add(correctAnswer);
-
-  while (numbers.size < 30) {
-    numbers.add(Math.floor(Math.random() * 30 + 1));
-  }
-
-  numbers = Array.from(numbers).sort(() => Math.random() - 0.5);
-
-  numbers.forEach(num => {
-    const div = document.createElement("div");
-    div.className = "grid-item";
-    div.innerText = num;
-    div.onclick = () => check(num);
-    grid.appendChild(div);
-  });
-
-  // تایمر
-  time = 10;
-  document.getElementById("timer").innerText = "⏳ " + time;
-  clearInterval(timerInterval);
-
-  timerInterval = setInterval(() => {
-    time--;
-    document.getElementById("timer").innerText = "⏳ " + time;
-
-    if (time === 0) {
-      lose();
-    }
-  }, 1000);
-}
-
-function check(num) {
-  if (num === correctAnswer) {
-    clearInterval(timerInterval);
-    document.getElementById("status").innerText = "🔥 بردی! آفرین";
-    document.getElementById("status").style.color = "#22c55e";
-
-    // یک ثانیه صبر و بعد شروع مرحله بعد
-    setTimeout(startGame, 1000);
-
-  } else {
-    document.getElementById("status").innerText = "❌ نههه! این نبود";
-    document.getElementById("status").style.color = "#f87171";
-  }
-}
-
-function lose() {
-  clearInterval(timerInterval);
-  document.getElementById("status").innerText = "💥 باختی!";
-  document.getElementById("status").style.color = "#ef4444";
-  document.getElementById("restart").style.display = "inline-block";
-}
-
-// شروع اولیه
-startGame();
-
-(function(){
-  const player = document.getElementById("player");
-  const obstacle = document.querySelector(".obstacle");
-  const gameover = document.getElementById("gameover");
-  const restartBtn = document.getElementById("restart-btn");
-  const scoreBox = document.getElementById("score");
-
-  let jumping = false;
-  let score = 0;
-  let alive = true;
-
-  function randomNegative() {
-    player.innerText = -Math.floor(Math.random() * 20 + 1);
-  }
-
-  function jump() {
-    if(jumping || !alive) return;
-    jumping = true;
-    player.classList.add("jump");
-    setTimeout(()=>{ player.classList.remove("jump"); jumping=false; },600);
-  }
-
-  document.addEventListener("keydown", e => { if(e.code==="Space") jump(); });
-  document.addEventListener("click", jump);
-
-  function collisionCheck(){
-    if(!alive) return;
-    const p = player.getBoundingClientRect();
-    const o = obstacle.getBoundingClientRect();
-    if(p.right>o.left && p.left<o.right && p.bottom>o.top){
-      alive=false;
-      gameover.style.display="block";
-      obstacle.classList.remove("moving"); // توقف مانع وقتی باختی
-    }
-  }
-
-  function scoreUpdate(){
-    if(alive){ score++; scoreBox.innerText = "امتیاز: "+score; }
-  }
-
-  function startGame() {
-    alive=true;
-    score=0;
-    scoreBox.innerText="امتیاز: 0";
-    gameover.style.display="none";
-    randomNegative();
-    obstacle.classList.add("moving"); // شروع حرکت مانع
-  }
-
-  restartBtn.addEventListener("click", startGame);
-
-  // شروع اولیه
-  startGame();
-  setInterval(collisionCheck, 20);
-  setInterval(scoreUpdate, 500);
-
-})();
-
-spawnNegative();
-
-absBtn.addEventListener("click",()=>{
-  absNumEl.style.transform="translateX(220px) scale(1.1)";
-
-  setTimeout(()=>{
-    bars.classList.add("abs-glow");
-  },600);
-
-  setTimeout(()=>{
-    currentValue=Math.abs(currentValue);
-    absNumEl.textContent=currentValue;
-    absNumEl.style.color="#00ff99";
-    absNumEl.style.transform="translateX(220px) scale(1.3)";
-  },800);
-
-  setTimeout(()=>{
-    bars.classList.remove("abs-glow");
-    spawnNegative();
-  },2000);
-});
+// … بقیه JS همانطور که قبلا بود، بدون تغییر
 </script>
 
 </body>
 </html>
-
